@@ -37,7 +37,8 @@ public class MapMaker : MonoBehaviour
             List<Vector2Int> dirs = new();
             dirs.Add(new Vector2Int(-1, 0));
             dirs.Add(new Vector2Int(0, -1));
-            dirs.Add(new Vector2Int(1,0));  
+            dirs.Add(new Vector2Int(1,0));
+  
             dirs.Add(new Vector2Int(0, 1));
             foreach (Vector2Int dir in dirs)
             {
@@ -49,6 +50,7 @@ public class MapMaker : MonoBehaviour
                 }
                 if (plane.ContainsKey(pi + pi + dir)) {
                     s.wall = plane[pi + pi + dir];
+                    s.type = plane[pi + pi + dir].type;
                 }
                 i += 1;
                 plan[pi].near.Add(s);
