@@ -14,6 +14,19 @@ public class MapMaker : MonoBehaviour
 
         foreach (Room r in roomParent.GetComponentsInChildren<Room>())
         {
+            Vector3 pos = r.transform.position;
+            r.transform.position = new Vector3(Mathf.Round(pos.x), pos.y, Mathf.Round(pos.z));
+        }
+
+        foreach (edge r in edgeParent.GetComponentsInChildren<edge>())
+        {
+            Vector3 pos = r.transform.position;
+            r.transform.position = new Vector3(Mathf.Round(pos.x), pos.y, Mathf.Round(pos.z));
+        }
+
+
+        foreach (Room r in roomParent.GetComponentsInChildren<Room>())
+        {
             Vector3 pos=r.transform.position;
             int xi = (int)(pos.x / 2.0);
             int yi = (int)(pos.z / 2.0);
