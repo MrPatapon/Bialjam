@@ -25,12 +25,17 @@ public struct Side
 
 public class Room : MonoBehaviour
 {
+    public Camera camera;
+
+    public GameObject active_gui;
+
     public List<Side> near = new();
     public List<Vector2Int> dir=new();
     public bool is_rot=false;
     public KeyCode trigger = KeyCode.Q;
 
     bool pre = false;
+    bool last_m = false;
     void Start()
     {
         
@@ -49,7 +54,34 @@ public class Room : MonoBehaviour
                 pre = false;
             }
         }
-            
+        camera= FindObjectOfType<Camera>();
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        var v=ray.origin - ray.direction * (ray.origin.y / ray.direction.y);
+        if ((transform.position - v).magnitude<1.0) {
+            if (Input.GetMouseButton(0) &&(!last_m))
+            {
+                Debug.Log("ROTATE!!!!!!!!!!");
+                rotate();
+
+            }
+            active_gui.active = true;
+        }
+        else
+        {
+            active_gui.active = false;
+        }
+        last_m = Input.GetMouseButton(0);
+    }
+    void OnMouseOver()
+    {
+        Debug.Log("ROTATE!!!!!!!!!!");
+
+    }
+
+     private void OnMouseDown()
+    {
+        Debug.Log("ROTATE!!!!!!!!!!");
+        rotate();
     }
     void rotate()
     {
