@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EndScene.unity
     guid: 4cf764a8e7316ae499c1f80af41b684b
+  - enabled: 1
+    path: Assets/more_pok.unity
+    guid: 009508729ec65914fb3f63d60f6dadcb
   m_configObjects: {}
