@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public List<Person> person;
+    public Stamina stamina;
     // Start is called before the first frame update
     bool ending = false;
     int kills = 0;
@@ -22,6 +23,12 @@ public class LevelManager : MonoBehaviour
 
 
     }
+
+    public void OnRun()
+    {
+        Debug.Log("END!!!!!!!!!!!!");
+        SceneManager.LoadScene("more_pok", LoadSceneMode.Single);
+    } 
     void Start()
     {
         Debug.Assert(person.Count > 0);

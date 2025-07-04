@@ -33,12 +33,12 @@ public class Room : MonoBehaviour
     public List<Vector2Int> dir=new();
     public bool is_rot=false;
     public KeyCode trigger = KeyCode.Q;
-
+    LevelManager level;
     bool pre = false;
     bool last_m = false;
     void Start()
     {
-        
+        level = FindObjectOfType<LevelManager>();
     }
     void Update()
     {
@@ -58,13 +58,18 @@ public class Room : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         var v=ray.origin - ray.direction * (ray.origin.y / ray.direction.y);
         if ((transform.position - v).magnitude<1.0) {
-            if (Input.GetMouseButton(0) &&(!last_m))
+            if (level.stamina.v > 0.3f)
             {
-                Debug.Log("ROTATE!!!!!!!!!!");
-                rotate();
+                if (Input.GetMouseButton(0) && (!last_m))
+                {
+                    Debug.Log("ROTATE!!!!!!!!!!");
+                    level.stamina.v -= 0.3f;
+                    rotate();
 
+                }
+                active_gui.active = true;
             }
-            active_gui.active = true;
+                
         }
         else
         {

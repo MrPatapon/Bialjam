@@ -11,6 +11,7 @@ public class Person : MonoBehaviour
     public bool inside = true;
     public LevelManager levelmanager;
     public bool live = true;
+    public Vector3 vel;
     void Start()
     {
         
@@ -38,8 +39,8 @@ public class Person : MonoBehaviour
                             break;
                         }
                         else{
-
-
+                            inside = false;
+                            vel =new Vector3(room.dir[i].x,0,room.dir[i].y)*5.0f;
 
                         }
                     }
@@ -50,6 +51,16 @@ public class Person : MonoBehaviour
             Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f);
             npos.y = pos.y;
             transform.position = npos;
+        }
+        else
+        {
+            transform.position += vel*Time.deltaTime;
+            timeleft -= Time.deltaTime;
+            if (timeleft < 0.0f)
+            {
+                vel *= 0.1f;
+                levelmanager.OnRun();
+            }
         }
         
     }
