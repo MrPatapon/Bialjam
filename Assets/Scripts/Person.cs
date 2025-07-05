@@ -30,6 +30,26 @@ public class Person : MonoBehaviour
         return new Vector3(room.dir[i].x, 0, room.dir[i].y);
     }*/
     // Update is called once per frame
+
+    void open_door(int i)
+    {
+        Side si = room.near[i];
+        si.type = SideType.ODoor;
+        room.near[i] = si;
+
+        if(room.near[i].other_room!=null)
+        {
+            Side si2 = room.near[i].other_room.near[i ^ 2];
+            si2.type = SideType.ODoor;
+            room.near[i].other_room.near[i ^ 2] = si2;
+        }
+        
+
+        GameObject dr = room.near[i].wall.GetComponent<DoorObject>().door;
+        dr.transform.RotateAround(Vector3.up, Mathf.PI / 2.0f);
+
+    }
+
     void Update()
     {
         hub_scary.active = scary;
@@ -61,14 +81,21 @@ public class Person : MonoBehaviour
                             if (emp)
                             {
                                 my_dir = i;
+                                if(room.near[i].type == SideType.CDoor)
+                                {
+                                    open_door(i);
+                                }
                                 Room nroom = room.near[i].other_room;
                                 room = nroom;
+
+
                                 break;
                             }
                             
                         }
                         else{
                             inside = false;
+                            open_door(i);
                             vel =new Vector3(room.dir[i].x,0,room.dir[i].y)*5.0f;
 
                         }

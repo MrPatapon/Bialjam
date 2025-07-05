@@ -39,11 +39,27 @@ public class Room : MonoBehaviour
     bool pre = false;
     bool last_m = false;
     public Killer killer=null;
-
+    public bool use_auto_mesh = false;
+    public GameObject mesh1;
+    public GameObject mesh2;
 
 
     void Start()
     {
+        if (use_auto_mesh)
+        {
+            if (can_rotate)
+            {
+                mesh1.active = true;
+                mesh2.active = false;
+            }
+            else
+            {
+                mesh2.active = true;
+                mesh1.active = false;
+            }
+        }
+
         level = FindObjectOfType<LevelManager>();
    
     }
