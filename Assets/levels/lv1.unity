@@ -7421,7 +7421,7 @@ MonoBehaviour:
   gui: {fileID: 470895991}
   gui2: {fileID: 1026876057}
   obj_power: {fileID: 1581571611}
-  time2power: 0.1
+  time2power: 1.2
 --- !u!1 &1575131726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7851,7 +7851,7 @@ MonoBehaviour:
   gui: {fileID: 1055871771}
   gui2: {fileID: 1432039790}
   obj_power: {fileID: 1575131726}
-  time2power: 0.2
+  time2power: 1.2
 --- !u!136 &1908113530
 CapsuleCollider:
   m_ObjectHideFlags: 0

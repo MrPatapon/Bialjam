@@ -195,6 +195,11 @@ public class Person : MonoBehaviour
             }
         }
     }
+    void reverse()
+    {
+        my_dir = my_dir^2;
+
+    }
     public void kill(int damage)
     {
         if (damage < 2 && !scary)
@@ -203,6 +208,9 @@ public class Person : MonoBehaviour
             {
                 scary = true;
                 time2heal = 4.0f;
+                reverse();
+
+
             }
         }
         else
