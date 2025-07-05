@@ -12,14 +12,25 @@ public class Person : MonoBehaviour
     public LevelManager levelmanager;
     public bool live = true;
     public Vector3 vel;
+<<<<<<< Updated upstream
     public Killer last_killer=null;
     public GameObject hub_scary;
     public bool scary=false;
+=======
+    private Vector3 velocity;
+    [SerializeField] private Transform visualChild;
+    [SerializeField] private Animation animationComponent;
+    private AnimationState walkState;
+>>>>>>> Stashed changes
     void Start()
     {
-        
+        //animationComponent = GetComponentInChildren<Animation>();
     }
+    /*Vector3 get_d()
+    {
 
+        return new Vector3(room.dir[i].x, 0, room.dir[i].y);
+    }*/
     // Update is called once per frame
     void Update()
     {
@@ -55,6 +66,7 @@ public class Person : MonoBehaviour
             Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f* levelmanager.gameSpeed);
             npos.y = pos.y;
             transform.position = npos;
+            velocity = (room.transform.position - transform.position) * 4.0f;
         }
         else
         {
@@ -65,8 +77,67 @@ public class Person : MonoBehaviour
                 vel *= 0.1f;
                 levelmanager.OnRun();
             }
+            velocity = vel;
         }
-        
+
+        Vector3 movementDir;
+
+        if (inside)
+        {
+            movementDir = (room.transform.position - transform.position);
+        }
+        else
+        {
+            movementDir = vel;
+        }
+
+        // Only rotate if moving
+        if (movementDir.magnitude > 0.1f && visualChild != null)
+        {
+            Vector3 lookDir = new Vector3(movementDir.x, 0, movementDir.z);
+            if (lookDir.sqrMagnitude > 0.001f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(lookDir);
+                visualChild.rotation = Quaternion.Slerp(visualChild.rotation, targetRotation, Time.deltaTime * 100f);
+            }
+        }
+        float speed = new Vector3(velocity.x, 0, velocity.z).magnitude;
+
+        if (speed > 0.1f)
+        {
+            if(inside)
+            {
+                walkState = animationComponent["Walking"];
+                walkState.speed = speed * 0.5f;
+                if (!animationComponent.IsPlaying("Walking"))
+                {
+                    animationComponent.CrossFade("Walking");
+                }
+            }
+            else
+            {
+                walkState = animationComponent["Running"];
+                walkState.speed = speed * 0.3f;
+                if (!animationComponent.IsPlaying("Running"))
+                {
+                    animationComponent.CrossFade("Running");
+                }
+            }                    
+        }
+        else
+        {   
+            AnimationState idleState = animationComponent["T POSE"];
+            if (idleState != null)
+            {
+               idleState.speed = 1.0f;
+               if (!animationComponent.IsPlaying("T POSE"))
+               {
+                    animationComponent.CrossFade("T POSE");
+               }               
+            }            
+        }
+        //AnimationState anim = animationComponent["Walking"];
+        //anim.speed = speed * 0.5f;
     }
     public void kill(int damage)
     {

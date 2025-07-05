@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     public void OnRun()
     {
         Debug.Log("END!!!!!!!!!!!!");
-        SceneManager.LoadScene("more_pok", LoadSceneMode.Single);
+        SceneManager.LoadScene("more_pok 1", LoadSceneMode.Single);
     } 
     void Start()
     {
