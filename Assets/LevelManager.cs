@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     int kills = 0;
     float t = 1.0f;
     public bool on = true;
+    public string current_lv = "";//"more_pok"
+    public string next_lv = "";//"EndScene"
     public void OnKill()
     {
         kills += 1;
@@ -28,7 +30,7 @@ public class LevelManager : MonoBehaviour
     public void OnRun()
     {
         Debug.Log("END!!!!!!!!!!!!");
-        SceneManager.LoadScene("more_pok", LoadSceneMode.Single);
+        SceneManager.LoadScene(current_lv, LoadSceneMode.Single);
     } 
     void Start()
     {
@@ -46,7 +48,7 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("WIN!!!!!!!!!!");
                 if (on)
                 {
-                    SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+                    SceneManager.LoadScene(next_lv, LoadSceneMode.Single);
 
                 }
                     

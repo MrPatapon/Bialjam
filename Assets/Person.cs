@@ -16,6 +16,7 @@ public class Person : MonoBehaviour
     public GameObject hub_scary;
     public bool scary=false;
     private Vector3 velocity;
+    public float time2heal;
     [SerializeField] private Transform visualChild;
     [SerializeField] private Animation animationComponent;
     private AnimationState walkState;
@@ -151,6 +152,18 @@ public class Person : MonoBehaviour
         }
         //AnimationState anim = animationComponent["Walking"];
         //anim.speed = speed * 0.5f;
+        if (!live)
+        {
+            transform.position += Vector3.down * Time.deltaTime;
+        }
+        if (scary)
+        {
+            time2heal -= Time.deltaTime * levelmanager.gameSpeed;
+            if(time2heal < 0.0f)
+            {
+                scary = false;
+            }
+        }
     }
     public void kill(int damage)
     {
@@ -159,6 +172,7 @@ public class Person : MonoBehaviour
             if (live)
             {
                 scary = true;
+                time2heal = 4.0f;
             }
         }
         else
