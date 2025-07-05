@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/more_pok.unity
     guid: 009508729ec65914fb3f63d60f6dadcb
+  - enabled: 1
+    path: Assets/levels/lv1.unity
+    guid: 036ec0aa79dbdda4092de3bd45753809
+  - enabled: 1
+    path: Assets/levels/lv2.unity
+    guid: e916ddf90b62ceb4680ce5d7a08254d6
+  - enabled: 1
+    path: Assets/levels/lv3.unity
+    guid: 43c9efe59a81e814682fbc4dbea05d23
   m_configObjects: {}
