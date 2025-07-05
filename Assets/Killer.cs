@@ -9,57 +9,76 @@ public class Killer : MonoBehaviour
     public bool preview=false;
     public GameObject gui;
     public GameObject gui2;
+    public GameObject obj_power;
+    public float time2power = 5.0f;
     void Start()
     {
         room.killer = this;
     }
     void Update()
     {
-        bool ac = false;
-        foreach (Person p in levelManager.person)
+        time2power -= Time.deltaTime;
+        obj_power.active = time2power < 0.0;
+        if (time2power < 0.0)
         {
-            if (p.room == room)
+            bool ac = false;
+            foreach (Person p in levelManager.person)
             {
-                if (p.live)
+                if (p.room == room)
                 {
-                    ac = true;
+                    if (p.live)
+                    {
+                        ac = true;
+                    }
                 }
             }
-        }
-        
-        if (preview && ac)
-        {
-            if (Input.GetMouseButton(0))
+
+            if (preview && ac)
             {
-                foreach (Person p in levelManager.person)
+                if (Input.GetMouseButton(0))
                 {
-                    if (p.room == room)
+                    foreach (Person p in levelManager.person)
                     {
-                        p.kill();
+                        if (p.room == room)
+                        {
+                            if(p.last_killer != this)
+                            {
+                                time2power = 5.0f;
+                                p.kill(1);
+                            }
+
+                        }
                     }
+
                 }
 
             }
-                
-        }
-        if (preview)
-        {
-            if (ac)
+            if (preview)
             {
-                gui.active = true;
-                gui2.active = false;
+                if (ac)
+                {
+                    gui.active = true;
+                    gui2.active = false;
+                }
+                else
+                {
+                    gui.active = false;
+                    gui2.active = true;
+                }
             }
             else
             {
                 gui.active = false;
-                gui2.active = true;
+                gui2.active = false;
             }
+
         }
         else
         {
             gui.active = false;
             gui2.active = false;
         }
+        
         
     }
 }

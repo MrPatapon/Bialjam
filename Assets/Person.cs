@@ -13,6 +13,8 @@ public class Person : MonoBehaviour
     public bool live = true;
     public Vector3 vel;
     public Killer last_killer=null;
+    public GameObject hub_scary;
+    public bool scary=false;
     void Start()
     {
         
@@ -21,6 +23,7 @@ public class Person : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hub_scary.active = scary;
         if (inside)
         {
             timeleft -= Time.deltaTime* levelmanager.gameSpeed;
@@ -65,17 +68,28 @@ public class Person : MonoBehaviour
         }
         
     }
-    public void kill()
+    public void kill(int damage)
     {
-        if (live)
+        if (damage < 2 && !scary)
         {
-            live = false;
-            levelmanager.OnKill();
+            if (live)
+            {
+                scary = true;
+            }
         }
         else
         {
-            Debug.Log("ERr kill again");
+            if (live)
+            {
+                live = false;
+                levelmanager.OnKill();
+            }
+            else
+            {
+                Debug.Log("ERr kill again");
+            }
         }
+       
 
     }
 }
