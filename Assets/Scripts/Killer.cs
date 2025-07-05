@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum KillerType
+{
+    Scary,
+    Mouth
+};
+
 public class Killer : MonoBehaviour
 {
+    public KillerType kType= KillerType.Scary;
     public LevelManager levelManager;
     public Room room;
     public bool preview=false;
@@ -45,7 +52,14 @@ public class Killer : MonoBehaviour
                             if(p.last_killer != this)
                             {
                                 time2power = 5.0f;
-                                p.kill(1);
+                                if(kType== KillerType.Scary)
+                                {
+                                    p.kill(1);
+                                }
+                                if (kType == KillerType.Mouth)
+                                {
+                                    p.kill(2);
+                                }
                             }
 
                         }
