@@ -12,6 +12,7 @@ public class Person : MonoBehaviour
     public LevelManager levelmanager;
     public bool live = true;
     public Vector3 vel;
+    public Killer last_killer=null;
     void Start()
     {
         
@@ -48,14 +49,14 @@ public class Person : MonoBehaviour
                 timeleft = maxtimeleft;
             }
             Vector3 pos = transform.position;
-            Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f);
+            Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f* levelmanager.gameSpeed);
             npos.y = pos.y;
             transform.position = npos;
         }
         else
         {
-            transform.position += vel*Time.deltaTime;
-            timeleft -= Time.deltaTime;
+            transform.position += vel*Time.deltaTime * levelmanager.gameSpeed;
+            timeleft -= Time.deltaTime * levelmanager.gameSpeed;
             if (timeleft < 0.0f)
             {
                 vel *= 0.1f;
