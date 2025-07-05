@@ -95,7 +95,10 @@ public class Person : MonoBehaviour
                         }
                         else{
                             inside = false;
-                            open_door(i);
+                            if (room.near[i].type == SideType.CDoor)
+                            {
+                                open_door(i);
+                            }
                             vel =new Vector3(room.dir[i].x,0,room.dir[i].y)*5.0f;
 
                         }
