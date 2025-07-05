@@ -85,6 +85,7 @@ public class Room : MonoBehaviour
             killer.preview = false;
         }
         if ((transform.position - v).magnitude<1.0) {
+            if (level == null) { level = FindObjectOfType<LevelManager>(); };
             if (level.stamina.v > 0.3f)
             {
                 if (can_rotate)

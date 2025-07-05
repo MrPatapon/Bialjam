@@ -13,6 +13,7 @@ public class Killer : MonoBehaviour
     public float time2power = 5.0f;
     void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         room.killer = this;
     }
     void Update()
