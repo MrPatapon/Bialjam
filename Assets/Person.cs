@@ -22,7 +22,7 @@ public class Person : MonoBehaviour
     {
         if (inside)
         {
-            timeleft -= Time.deltaTime;
+            timeleft -= Time.deltaTime* levelmanager.gameSpeed;
             if (timeleft < 0.0f && live)
             {
                 int[] d = { my_dir, (my_dir + 1) % 4, (my_dir + 3) % 4, (my_dir + 2) % 4 };

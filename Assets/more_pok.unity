@@ -1410,6 +1410,7 @@ MonoBehaviour:
   v: 0.5
   im: {fileID: 417078856}
   refillTime: 10
+  levelManager: {fileID: 1441708785}
 --- !u!114 &568250378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,6 +2748,7 @@ MonoBehaviour:
   - {fileID: 1224086940}
   - {fileID: 397549347}
   stamina: {fileID: 568250377}
+  gameSpeed: 0.5
   on: 1
 --- !u!4 &1441708786
 Transform:

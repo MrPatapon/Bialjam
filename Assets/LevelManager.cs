@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public List<Person> person;
     public Stamina stamina;
+    public float gameSpeed = 1.0f;
     // Start is called before the first frame update
     bool ending = false;
     int kills = 0;
