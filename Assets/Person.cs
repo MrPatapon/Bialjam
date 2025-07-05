@@ -45,10 +45,26 @@ public class Person : MonoBehaviour
                     {
                         if (room.near[i].other_room != null)
                         {
-                            my_dir = i;
-                            Room nroom = room.near[i].other_room;
-                            room = nroom;
-                            break;
+                            bool emp = true;
+
+                            foreach(Person p in levelmanager.person)
+                            {
+                                if(p.room== room.near[i].other_room)
+                                {
+                                    if (p.live)
+                                    {
+                                        emp = false;
+                                    }
+                                }
+                            }
+                            if (emp)
+                            {
+                                my_dir = i;
+                                Room nroom = room.near[i].other_room;
+                                room = nroom;
+                                break;
+                            }
+                            
                         }
                         else{
                             inside = false;

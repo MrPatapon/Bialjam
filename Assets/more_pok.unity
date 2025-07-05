@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 795294425}
   maxtimeleft: 1
-  timeleft: 1
+  timeleft: 0.5
   my_dir: 0
   inside: 1
   levelmanager: {fileID: 1441708785}
@@ -2206,6 +2206,10 @@ PrefabInstance:
     - target: {fileID: 133262, guid: a28680a4e82f3b44d86fd2f877776f1a, type: 3}
       propertyPath: m_Name
       value: Character_1@Walking (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 145806, guid: a28680a4e82f3b44d86fd2f877776f1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 186600, guid: a28680a4e82f3b44d86fd2f877776f1a, type: 3}
       propertyPath: m_IsActive
