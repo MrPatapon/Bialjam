@@ -12,16 +12,13 @@ public class Person : MonoBehaviour
     public LevelManager levelmanager;
     public bool live = true;
     public Vector3 vel;
-<<<<<<< Updated upstream
     public Killer last_killer=null;
     public GameObject hub_scary;
     public bool scary=false;
-=======
     private Vector3 velocity;
     [SerializeField] private Transform visualChild;
     [SerializeField] private Animation animationComponent;
     private AnimationState walkState;
->>>>>>> Stashed changes
     void Start()
     {
         //animationComponent = GetComponentInChildren<Animation>();
