@@ -4413,7 +4413,7 @@ MonoBehaviour:
   - {fileID: 1224086940}
   - {fileID: 1469745465}
   stamina: {fileID: 568250377}
-  gameSpeed: 2
+  gameSpeed: 0.7
   on: 1
   current_lv: levels/lv4
   next_lv: levels/lv6
