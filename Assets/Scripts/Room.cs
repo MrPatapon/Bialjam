@@ -44,6 +44,8 @@ public class Room : MonoBehaviour
     public GameObject mesh2;
     public POI poi = null;
 
+    //public AudioSource RotateSound;
+
     void Start()
     {
         if (use_auto_mesh)
@@ -70,6 +72,7 @@ public class Room : MonoBehaviour
             if ( Input.GetKeyDown(trigger) && pre == false ) {
                 pre=true;
                 Debug.Log("ROTATE!!!!!!!!!!");
+                
                 rotate();
             }
             else if( Input.GetKeyDown(trigger) == false && pre )
@@ -137,6 +140,7 @@ public class Room : MonoBehaviour
         nearO.Add(near[1]);
         nearO.Add(near[2]);
         nearO.Add(near[3]);
+        AudioManager.Instance.Play("turning_sound");
 
         for(int idO=0;idO<4;idO++){
             int id = (idO + 1) % 4;

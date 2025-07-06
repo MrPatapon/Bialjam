@@ -18,7 +18,8 @@ public class Killer : MonoBehaviour
     public GameObject gui2;
     public GameObject obj_power;
     public float time2power = 5.0f;
-    public AudioClip SoundToScary;
+    public string soundName;
+    public string screamsoundName;
 
     public Animation anim; // NEW - Legacy Animation component
     public AnimationClip killClip; // Assign your legacy animation here
@@ -80,7 +81,7 @@ public class Killer : MonoBehaviour
                                 if (kType == KillerType.Scary)
                                 {
                                     p.kill(1);
-                                    
+                                    Play();
                                     if(anim != null)
                                     {
                                         StartCoroutine(PlayKillAnimationLegacy());
@@ -161,5 +162,26 @@ public class Killer : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         ObjectToTurnOn.active = false;
 
+    }
+
+    public void Play()
+    {
+        
+        if (!string.IsNullOrEmpty(soundName))
+        {
+            AudioManager.Instance?.Play(soundName);
+        }
+        else
+        {
+            Debug.LogWarning("PlaySoundTrigger: No sound name assigned.");
+        }
+        if (!string.IsNullOrEmpty(screamsoundName))
+        {
+            AudioManager.Instance?.Play(screamsoundName);
+        }
+        else
+        {
+            Debug.LogWarning("PlaySoundTrigger: No scream sound name assigned.");
+        }
     }
 }

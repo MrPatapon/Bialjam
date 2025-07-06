@@ -2936,7 +2936,8 @@ MonoBehaviour:
   gui2: {fileID: 1211370061}
   obj_power: {fileID: 1956437516}
   time2power: 1.2
-  SoundToScary: {fileID: 0}
+  soundName: chair_sound
+  screamsoundName: scream2
   anim: {fileID: 660500823}
   killClip: {fileID: 7400000, guid: 5aa4ad74c5cf22c469e3a993a2c2363b, type: 2}
   ObjectToTurnOn: {fileID: 0}
@@ -4409,7 +4410,8 @@ MonoBehaviour:
   gui2: {fileID: 1012929741}
   obj_power: {fileID: 346141628}
   time2power: 3
-  SoundToScary: {fileID: 0}
+  soundName: lamp
+  screamsoundName: scream2
   anim: {fileID: 1181526798}
   killClip: {fileID: 7400000, guid: 14821a765e5ac62488afcbcf3bd97a50, type: 2}
   ObjectToTurnOn: {fileID: 0}
@@ -4794,6 +4796,194 @@ PrefabInstance:
       addedObject: {fileID: 92892770}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8320a9be239b05c4c924045e340cbb06, type: 3}
+--- !u!1 &1328929177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328929180}
+  - component: {fileID: 1328929179}
+  - component: {fileID: 1328929178}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1328929178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328929177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a978ccc50dc8d054982b5e36695a136d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ambient
+    clip: {fileID: 8300000, guid: 915cf507f172052438351b5142a89c1c, type: 3}
+    volume: 0.207
+    pitch: 1
+    loop: 1
+  - name: doll_laugh
+    clip: {fileID: 8300000, guid: 17097c77e9af25246a3e86f69babc94a, type: 3}
+    volume: 0.667
+    pitch: 1
+    loop: 0
+  - name: music
+    clip: {fileID: 8300000, guid: f31d8bf752090724689fc41869ea84b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - name: man_laugh
+    clip: {fileID: 8300000, guid: 378fb86a3446bfc41a0d6b61485dbbe1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: scream1
+    clip: {fileID: 8300000, guid: 646c26029b5865c4bb9eb6e972e97855, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: scream2
+    clip: {fileID: 8300000, guid: 646c26029b5865c4bb9eb6e972e97855, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: chair_sound
+    clip: {fileID: 8300000, guid: af321f06eafb53648983766f6300feeb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: turning_sound
+    clip: {fileID: 8300000, guid: df2daa62a0ceec94ea59de7b9a49a501, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: lamp
+    clip: {fileID: 8300000, guid: f752608a9832e764fbc21819dbdbc956, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  musicTrackName: music
+--- !u!82 &1328929179
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328929177}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1328929180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328929177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.366771, y: -3.760553, z: -2.2458234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1400202836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4230117428205446634, guid: 8e6a7a456bc27fc448e68d68d0caa0d6,
@@ -6719,3 +6909,4 @@ SceneRoots:
   - {fileID: 314963448}
   - {fileID: 215164098}
   - {fileID: 1451345811}
+  - {fileID: 1328929180}
