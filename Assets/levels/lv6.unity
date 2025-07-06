@@ -7952,7 +7952,7 @@ MonoBehaviour:
   gameSpeed: 0.7
   on: 1
   current_lv: levels/lv6
-  next_lv: levels/lv1
+  next_lv: levels/MainMenu
   config: {fileID: 11400000, guid: cd9f4e44c87f57e4ea8c1808186c8c16, type: 2}
 --- !u!4 &1441708786
 Transform:
