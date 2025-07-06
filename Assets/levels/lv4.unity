@@ -3935,7 +3935,7 @@ MonoBehaviour:
   gameSpeed: 2
   on: 1
   current_lv: levels/lv4
-  next_lv: levels/lv1
+  next_lv: levels/lv6
 --- !u!4 &1441708786
 Transform:
   m_ObjectHideFlags: 0

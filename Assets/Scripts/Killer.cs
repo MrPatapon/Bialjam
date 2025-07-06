@@ -58,7 +58,15 @@ public class Killer : MonoBehaviour
                                 }
                                 if (kType == KillerType.Mouth)
                                 {
-                                    p.kill(2);
+                                    if (p.my_dir == 3)
+                                    {
+                                        p.kill(2);
+                                    }
+                                    else
+                                    {
+                                        p.kill(1);
+                                    }
+                                    
                                 }
                             }
 
