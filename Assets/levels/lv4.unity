@@ -455,6 +455,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 575224571}
     m_Modifications:
+    - target: {fileID: 1437682453762374388, guid: ef94ea05e8af6ef40aae44ec58100f27,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ede039c614d54248a0bff1a91c64f53, type: 2}
     - target: {fileID: 6363642947287895312, guid: ef94ea05e8af6ef40aae44ec58100f27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2886,13 +2891,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911705700}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 0.6100001, z: -0.28}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalRotation: {x: -0.13102938, y: 0.8671128, z: -0.30798092, w: 0.3689098}
+  m_LocalPosition: {x: -0.07, y: 1.243, z: -0.038}
+  m_LocalScale: {x: 0.07404499, y: 0.74044985, z: 0.07404499}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1469745469}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.94, y: 126.755, z: -30.357}
 --- !u!1 &938731482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4662,13 +4667,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528877006}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 0.6100001, z: -0.28}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalRotation: {x: -0.13102938, y: 0.8671128, z: -0.30798092, w: 0.3689098}
+  m_LocalPosition: {x: -0.07, y: 1.243, z: -0.038}
+  m_LocalScale: {x: 0.07404499, y: 0.74044985, z: 0.07404499}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1224086944}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.94, y: 126.755, z: -30.357}
 --- !u!64 &1528877008
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4933,6 +4938,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 575224571}
     m_Modifications:
+    - target: {fileID: 1437682453762374388, guid: ef94ea05e8af6ef40aae44ec58100f27,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ede039c614d54248a0bff1a91c64f53, type: 2}
     - target: {fileID: 6363642947287895312, guid: ef94ea05e8af6ef40aae44ec58100f27,
         type: 3}
       propertyPath: m_LocalPosition.x
