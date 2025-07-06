@@ -17,7 +17,6 @@ public class Person : MonoBehaviour
     public bool scary=false;
     private Vector3 velocity;
     public float time2heal;
-    public POI poi = null;
     [SerializeField] private Transform visualChild;
     [SerializeField] private Animation animationComponent;
     private AnimationState walkState;
@@ -56,86 +55,62 @@ public class Person : MonoBehaviour
         hub_scary.active = scary;
         if (inside)
         {
-            timeleft -= Time.deltaTime * levelmanager.gameSpeed;
-            if (poi == null)
+            timeleft -= Time.deltaTime* levelmanager.gameSpeed;
+            if (timeleft < 0.0f && live)
             {
-                if (timeleft < 0.0f && live)
+                int[] d = { my_dir, (my_dir + 1) % 4, (my_dir + 3) % 4, (my_dir + 2) % 4 };
+                for (int ii = 0; ii < 4; ii++)
                 {
-                    int[] d = { my_dir, (my_dir + 1) % 4, (my_dir + 3) % 4, (my_dir + 2) % 4 };
-                    for (int ii = 0; ii < 4; ii++)
+                    int i = d[ii];
+                    if (room.near[i].type != SideType.Wall)
                     {
-                        int i = d[ii];
-                        if (room.near[i].type != SideType.Wall)
+                        if (room.near[i].other_room != null)
                         {
-                            if (room.near[i].other_room != null)
+                            bool emp = true;
+
+                            foreach(Person p in levelmanager.person)
                             {
-                                bool emp = true;
-
-                                foreach (Person p in levelmanager.person)
+                                if(p.room== room.near[i].other_room)
                                 {
-                                    if (p.room == room.near[i].other_room)
+                                    if (p.live)
                                     {
-                                        if (p.live)
-                                        {
-                                            emp = false;
-                                        }
+                                        emp = false;
                                     }
                                 }
-                                if (emp)
-                                {
-                                    my_dir = i;
-                                    if (room.near[i].type == SideType.CDoor)
-                                    {
-                                        open_door(i);
-                                    }
-                                    Room nroom = room.near[i].other_room;
-                                    room = nroom;
-                                    if (room.poi !=null)
-                                    {
-                                        poi = room.poi;
-                                    }
-
-                                    break;
-                                }
-
                             }
-                            else
+                            if (emp)
                             {
-                                inside = false;
-                                if (room.near[i].type == SideType.CDoor)
+                                my_dir = i;
+                                if(room.near[i].type == SideType.CDoor)
                                 {
                                     open_door(i);
                                 }
-                                vel = new Vector3(room.dir[i].x, 0, room.dir[i].y) * 5.0f;
+                                Room nroom = room.near[i].other_room;
+                                room = nroom;
 
+
+                                break;
                             }
+                            
+                        }
+                        else{
+                            inside = false;
+                            if (room.near[i].type == SideType.CDoor)
+                            {
+                                open_door(i);
+                            }
+                            vel =new Vector3(room.dir[i].x,0,room.dir[i].y)*5.0f;
+
                         }
                     }
-                    timeleft = maxtimeleft;
                 }
-                Vector3 pos = transform.position;
-                Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f * levelmanager.gameSpeed);
-                npos.y = pos.y;
-                transform.position = npos;
-                velocity = (room.transform.position - transform.position) * 4.0f;
-
+                timeleft = maxtimeleft;
             }
-            else
-            {
-                Vector3 pos = transform.position;
-                Vector3 npos = Vector3.Lerp(pos, poi.transform.position, Time.deltaTime * 4.0f * levelmanager.gameSpeed);
-                npos.y = pos.y;
-                velocity = (poi.transform.position - transform.position) * 4.0f;
-                transform.position = npos;
-                if (timeleft < -3.0f && live)
-                {
-                    poi = null;
-                    timeleft= maxtimeleft;
-                    ;
-
-                }
-            } 
-               
+            Vector3 pos = transform.position;
+            Vector3 npos = Vector3.Lerp(pos, room.transform.position, Time.deltaTime * 4.0f* levelmanager.gameSpeed);
+            npos.y = pos.y;
+            transform.position = npos;
+            velocity = (room.transform.position - transform.position) * 4.0f;
         }
         else
         {
@@ -158,10 +133,6 @@ public class Person : MonoBehaviour
         else
         {
             movementDir = vel;
-        }
-        if (poi!=null && timeleft< maxtimeleft / 2.0f)
-        {
-            movementDir = (poi.lookAt.transform.position - transform.position);
         }
 
         // Only rotate if moving
