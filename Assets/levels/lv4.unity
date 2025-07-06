@@ -2717,11 +2717,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 23_floor (3)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 7104529857842042418, guid: a461d17c233f7054eab1497825841024,
         type: 3}
       propertyPath: poi
       value: 
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 688459e (working poi)
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9089711252012744894, guid: a461d17c233f7054eab1497825841024, type: 3}
@@ -3934,7 +3937,6 @@ MonoBehaviour:
   hub_scary: {fileID: 1528877006}
   scary: 0
   time2heal: 0
-  poi: {fileID: 0}
   visualChild: {fileID: 689756514}
   animationComponent: {fileID: 1752661327}
 --- !u!135 &1224086941
@@ -5065,7 +5067,6 @@ MonoBehaviour:
   hub_scary: {fileID: 911705700}
   scary: 0
   time2heal: 0
-  poi: {fileID: 0}
   visualChild: {fileID: 255316365}
   animationComponent: {fileID: 255316364}
 --- !u!135 &1469745466
