@@ -42,7 +42,7 @@ public class Room : MonoBehaviour
     public bool use_auto_mesh = false;
     public GameObject mesh1;
     public GameObject mesh2;
-
+    public POI poi = null;
 
     void Start()
     {
