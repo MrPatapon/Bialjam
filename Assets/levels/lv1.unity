@@ -2595,6 +2595,7 @@ MonoBehaviour:
   hub_scary: {fileID: 1528877006}
   scary: 0
   time2heal: 0
+  poi: {fileID: 0}
   visualChild: {fileID: 689756514}
   animationComponent: {fileID: 1752661327}
 --- !u!135 &1224086941
@@ -2960,7 +2961,7 @@ MonoBehaviour:
   on: 1
   current_lv: levels/lv1
   next_lv: levels/lv2
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: cd9f4e44c87f57e4ea8c1808186c8c16, type: 2}
 --- !u!4 &1441708786
 Transform:
   m_ObjectHideFlags: 0
@@ -3314,8 +3315,10 @@ MonoBehaviour:
   gui2: {fileID: 1026876057}
   obj_power: {fileID: 1581571611}
   time2power: 1.2
+  SoundToScary: {fileID: 0}
   anim: {fileID: 9140497337312422742}
   killClip: {fileID: 7400000, guid: 5aa4ad74c5cf22c469e3a993a2c2363b, type: 2}
+  ObjectToTurnOn: {fileID: 0}
 --- !u!1 &1575131726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,8 +3890,10 @@ MonoBehaviour:
   gui2: {fileID: 1981230403}
   obj_power: {fileID: 1575131726}
   time2power: 1.2
+  SoundToScary: {fileID: 0}
   anim: {fileID: 6042202444882967654}
   killClip: {fileID: 7400000, guid: 5511458500a63d74d97bbb385938ef85, type: 2}
+  ObjectToTurnOn: {fileID: 0}
 --- !u!136 &1908113530
 CapsuleCollider:
   m_ObjectHideFlags: 0
