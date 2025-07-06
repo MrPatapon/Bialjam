@@ -22,6 +22,8 @@ public class Killer : MonoBehaviour
 
     public Animation anim; // NEW - Legacy Animation component
     public AnimationClip killClip; // Assign your legacy animation here
+
+    public GameObject ObjectToTurnOn;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private bool isPlayingAnimation = false;
@@ -82,7 +84,11 @@ public class Killer : MonoBehaviour
                                     if(anim != null)
                                     {
                                         StartCoroutine(PlayKillAnimationLegacy());
-                                    }                                    
+                                    }
+                                    if (ObjectToTurnOn != null)
+                                    {
+                                        StartCoroutine(EnableAndDisableObject());
+                                    }
                                 }
                                 if (kType == KillerType.Mouth)
                                 {
@@ -147,5 +153,13 @@ public class Killer : MonoBehaviour
         transform.rotation = originalRotation;
 
         isPlayingAnimation = false;
+    }
+
+    IEnumerator EnableAndDisableObject()
+    {
+        ObjectToTurnOn.active = true;
+        yield return new WaitForSeconds(4.0f);
+        ObjectToTurnOn.active = false;
+
     }
 }
