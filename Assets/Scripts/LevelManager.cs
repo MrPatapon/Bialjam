@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public bool on = true;
     public string current_lv = "";//"more_pok"
     public string next_lv = "";//"EndScene"
+    public SpawnManagerScriptableObject config;
     public void OnKill()
     {
         kills += 1;
@@ -34,6 +35,10 @@ public class LevelManager : MonoBehaviour
     } 
     void Start()
     {
+        if (config != null)
+        {
+            gameSpeed *= config.speed;
+        }
         Debug.Assert(person.Count > 0);
     }
 
